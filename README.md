@@ -1,24 +1,11 @@
-# README
+# Inventory Management System with Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 2.6.3
 
-Things you may want to cover:
+* Rails Version: 5.2.3
 
-* Ruby version
+* Database: sqlite3/mysql2
 
-* System dependencies
+* Bootstrap/jQuery/Vue
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Use Paperclip for store images
