@@ -1,0 +1,65 @@
+<div class="row mb-3">
+  <div class="col text-left">
+    <%= link_to t_action(:back), products_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<div class="card mb-3">
+  <div class="card-header">
+    <div class="row">
+      <div class="col text-left">
+        <h3><%= @product.name %></h3>
+      </div>
+      <div class="col text-right">
+        <%= link_to t_action(:edit), edit_product_path(@product), class: "btn btn-primary" %>
+        <%= link_to t_action(:delete), @product, method: :delete, data: { confirm: "你確定要刪除此項商品嗎?" },  class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-5">
+          <%= image_tag @product.image.url, class: "card-img" %>
+        </div>
+        <div class="col-md-7">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <h2>商品資料</h2>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th style="width: 100px;"><strong><%= t_attr("supplier") %></strong></th>
+                <td><%= @product.supplier.name %></td>
+              </tr>
+              <tr>
+                <th><strong><%= t_attr("price") %></strong></th>
+                <td><%= number_to_currency(@product.price, precision: 0) %></td>
+              </tr>
+              <tr>
+                <th style="width: 100px;"><strong><%= t_attr("quantity") %></strong></th>
+                <td><%= @product.quantity.to_i %></td>
+              </tr>
+              <tr>
+                <th style="width: 100px;"><strong><%= t_attr("status") %></strong></th>
+                <td><%= @product.status %></td>
+              </tr>
+              <tr>
+                <th style="width: 100px;"><strong><%= t_attr("category") %></strong></th>
+                <td><%= @product.category.name %></td>
+              </tr>
+              <tr>
+                <th style="width: 100px;"><strong><%= t_attr("location") %></strong></th>
+                <td><%= @product.location.name %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <%= "備註:  #{@product.comment}" %>
+  </div>
+</div>

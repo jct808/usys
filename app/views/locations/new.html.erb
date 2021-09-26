@@ -1,0 +1,9 @@
+<div class="row mb-2">
+  <div class="col text-left">
+    <h4><%= t_title(:new) %></h4>
+  </div>
+  <div class="col text-right">
+    <%= link_to t_action(:back), locations_path, :class => "btn btn-primary" %>
+  </div>
+</div>
+<%= render 'form', location: @location %>

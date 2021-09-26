@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>太子家具設計公司</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'main_vue', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div data-behavior="vue">
+    <% if user_signed_in? %>
+      <%= render "layouts/navbar" %>
+      <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <div class="align-items-center pt-3 pb-2 mb-3">
+          <%= render "layouts/message" %>
+          <%= yield %>
+        </div>
+      </main>
+    <% else %>
+      <div class="signin-body">
+        <%= render "layouts/message" %>
+        <%= yield %>
+      </div>
+    <% end %>
+    </div>
+  </body>
+</html>

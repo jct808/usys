@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-body">
+    <%= simple_form_for supplier do |form| %>
+      <%= form.error_notification %>
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <%= form.input :id %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <%= form.input :name %>
+        </div>
+        <div class="col-md-5 col-sm-6">
+          <%= form.input :phone %>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <%= form.input :status, collection: Supplier.status.options %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <%= form.input :sales %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <%= form.input :fax %>
+        </div>
+        <div class="col-md-8 col-sm-6">
+          <%= form.input :address %>
+        </div>
+      </div>
+      <%= form.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

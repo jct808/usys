@@ -1,0 +1,15 @@
+  <div class="col text-center">
+    <%= link_to t_action(:edit), edit_user_path(@user) %> |
+    <%= link_to t_action(:back), users_path %> |
+    <%= link_to t_action(:delete), @user, method: :delete, data: { confirm: "你確定要刪除此項廠商資料嗎?" },  class: "text-danger" %>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-1"><strong><%= t_attr("username") %></strong></div>
+    <div class="col"><%= @user.username %></div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-1"><strong><%= t_attr("name") %></strong></div>
+    <div class="col"><%= @user.name %></div>
+  </div>

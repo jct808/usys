@@ -1,0 +1,24 @@
+<div class="row mb-2">
+  <div class="col text-left">
+    <%= render "scope" %>
+  </div>
+  <div class="col text-right">
+    <%= link_to t_title(:new), new_product_path, :class => "btn btn-primary" %>
+  </div>
+</div>
+<% @products.each do | p |%>
+  <div class="product">
+    <div class="product-img" style="background-image:url(<%= p.image.url %>">
+      <div class="supplier"><%= p.supplier.name if p.supplier.present? %></div>
+      <div class="name"><%= "(#{p.id}) #{p.name}" %></div>
+      <div class="overlay">
+        <div class="overlay-content">
+          <%= link_to "#{number_to_currency(p.price, precision: 0)} #{p.comment}" , product_path(p), :class =>"hover" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="container">
+  <%= paginate @products %>
+</div>

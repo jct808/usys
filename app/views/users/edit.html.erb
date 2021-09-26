@@ -1,0 +1,4 @@
+<h4><%= t_title(:edit) %></h4>
+<%= link_to t_action(:show), @user %> |
+<%= link_to t_action(:back), users_path %>
+<%= render 'form', user: @user %>

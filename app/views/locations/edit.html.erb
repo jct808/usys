@@ -1,0 +1,10 @@
+<div class="row mb-2">
+  <div class="col text-left">
+    <h4><%= t_title(:edit) %></h4>
+  </div>
+  <div class="col text-right">
+    <%= link_to t_action(:show), @location, :class => "btn btn-primary" %>
+    <%= link_to t_action(:back), locations_path, :class => "btn btn-primary" %>
+  </div>
+</div>
+<%= render 'form', location: @location %>

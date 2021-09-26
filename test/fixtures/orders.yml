@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: MyString
+  phone: MyString
+  address: MyString
+  total: 1
+  shipping_date: 2020-01-19
+  user_id: 1
+
+two:
+  customer: MyString
+  phone: MyString
+  address: MyString
+  total: 1
+  shipping_date: 2020-01-19
+  user_id: 1

@@ -1,0 +1,83 @@
+<div class="card">
+  <div class="card-body">
+    <%= simple_form_for @order do |form| %>
+    <!-- invoice view page -->
+    <!-- header section -->
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <%= form.association :user if current_user.admin? %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= form.input :order_date %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= form.input :shipping_date %>
+      </div>
+    </div>
+    <h4>客戶資料</h4>
+    <!-- invoice address and contact -->
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <%= form.input :customer, label_html: {class: "fas fa-user"} %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= form.input :phone,  label_html: {class: "fa fa-phone"} %>
+      </div>
+      <div class="col-md-2 col-sm-6">
+        <%= form.input :status,  label_html: {class: "fa fa-check"} %>
+      </div>
+      <div class="col-md-9 col-sm-6">
+        <%= form.input :address, label_html: {class: "fa fa-truck"}%>
+      </div>
+      <div class="col-md-12 col-sm-6">
+        <%= form.input :comment, as: :text %>
+      </div>
+    </div>
+    <hr>
+    <!-- invoice Titles -->
+    <div class="row mb-1">
+      <div class="col text-left">
+        <h4>訂單商品資料</h4>
+      </div>
+      <div class="col text-right">
+        <%= link_to_add_association t_attr("add"), form, :items, class: "btn btn-primary" ,
+        data: {
+          association_insertion_node: '#order-details',
+          association_insertion_method: 'append'
+        } %>
+      </div>
+    </div>
+      <!-- product details table-->
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr class="text-center">
+            <th><%= t_attr("product") %></th>
+            <th><%= t_attr("unit_price") %></th>
+            <th><%= t_attr("quantity") %></th>
+            <th><%= t_attr("total") %></th>
+            <th colspan="2"><%= t_attr("comment") %></th>
+          </tr>
+        </thead>
+        <tbody id="order-details">
+          <%= form.simple_fields_for :items do |item| %>
+          <%= render 'item_fields', f: item %>
+          <% end %>
+        </tbody>
+      </table>
+    <!-- invoice subtotal -->
+    <div class="row mt-4">
+      <div class="col-md-4 col-sm-6">
+        <%= form.input :total, as: :currency, placeholder: "成交金額",  :input_html => {:id => "total" } %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= form.input :deposit, as: :currency, placeholder: "訂金", :input_html => {:id => "deposit" } %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= form.input :remainder, as: :currency, placeholder: "餘額", readonly: true,  :input_html => {:id => "remainder" } %>
+      </div>
+    </div>
+    <%= form.button :submit, class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>
+</div>

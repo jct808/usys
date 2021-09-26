@@ -1,0 +1,8 @@
+<tr class='nested-fields'>
+  <td><%= f.association :product, collection: @suppliers, :label_method => :id_name, :value_method => :id,  as: :grouped_select, group_method: :products, label: false,  input_html: { class: 'browser-default' } %></td>
+  <td><%= f.input :unit_price, label: false %></td>
+  <td><%= f.input :quantity, label: false %></td>
+  <td><%= f.input :total, label: false, readonly: true %></td>
+  <td><%= f.input :comment, label: false %></td>
+  <td style="width: 6rem;"><%= link_to_remove_association t_attr("delete"), f, class: "btn btn-danger" %></td>
+</tr>

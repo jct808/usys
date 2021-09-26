@@ -1,0 +1,4 @@
+<h4><%= t_title(:edit) %></h4>
+<%= link_to t_action(:show), @category %> |
+<%= link_to t_action(:back), categories_path %>
+<%= render 'form', category: @category %>

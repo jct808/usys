@@ -1,0 +1,15 @@
+<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= t(".location")%>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <% @locations.each do | l |%>
+        <%= link_to products_path(:location => l.id) , class: "dropdown-item"  do %>
+          <%= l.name%>
+          <span class="badge badge-primary badge-pill"><%= "#{l.products.count} 個" %></span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

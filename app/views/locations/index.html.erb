@@ -1,0 +1,27 @@
+<div class="row mb-2">
+  <div class="col text-left">
+    <h4 class><%= t_title(:index) %></h4>
+  </div>
+  <div class="col text-right">
+    <%= link_to t_title(:new), new_location_path, :class => "btn btn-primary" %>
+  </div>
+</div>
+<table class="table table-striped table-hover" id="myTable">
+  <thead class="thead-dark">
+    <tr>
+      <th><%= t_attr("name") %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @locations.each do |location| %>
+    <tr>
+      <td><%= link_to location.name, location %></td>
+      <td>
+        <%= link_to t_action(:edit), edit_location_path(location), class: "btn btn-primary" %>
+        <%= link_to t_action(:delete), location, method: :delete, data: { confirm: "你確定要刪除此項資料嗎?" }, class: "btn btn-danger" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

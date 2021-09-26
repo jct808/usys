@@ -1,0 +1,52 @@
+@import "bootstrap";
+@import "dashboard";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "card";
+
+
+@font-face {
+  font-family: 'NotoSansTC';
+  src        : url('NotoSansTC-Regular.otf') format("truetype");
+}
+
+body {
+  font-family: 'NotoSansTC';
+  overflow-y: scroll;
+}
+nav {
+  background-color: $primary-color;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  
+  
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  
+
+}
+
+.container {
+  width: max-content;
+}

@@ -1,0 +1,90 @@
+ <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0">
+  <%= link_to "太子家具設計公司", products_path, class: "navbar-brand col-md-3 col-lg-2 mr-0 px-3" %>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <% if controller.controller_name == 'products' && controller.action_name == 'index' %>
+    <%= form_tag(products_path, :method => "get", class: "form-inline") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "搜尋", class: "form-control form-control-dark mr-sm-2" %>
+      <button class="btn btn-info" type="submit" name="action">搜尋</button>
+    <% end %>
+  <% elsif controller.action_name == 'index' || controller.action_name == 'index_table' %>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜尋/編號"  class="form-control form-control-dark w-100">
+  <% end %>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <%= link_to t(".logout"), destroy_user_session_path, method: :delete, class: "nav-link" %>
+    </li>
+  </ul>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to products_path, class: active_class(products_path) do %>
+              <%= icon('fas', 'couch', '商品') %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to products_indx_table_path, class: active_class(products_indx_table_path) do %>
+              <%= icon('fas', 'couch', '修改商品價錢') %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_product_path, class: active_class(new_product_path) do  %>
+              <%= icon('fas', 'plus-square', '新增商品') %>
+            <% end %>
+          </li>
+          <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-muted">
+            <span>廠商</span>
+          </h5>
+          <li class="nav-item">
+            <%= link_to suppliers_path, class: active_class(suppliers_path) do  %>
+              <%= icon('fas', 'industry', '所有廠商資料') %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_supplier_path, class: active_class(new_supplier_path) do  %>
+              <%= icon('fas', 'address-card', '新增廠商') %>
+            <% end %>
+          </li>
+          <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-muted">
+            <span>客戶訂單</span>
+          </h5>
+          <li class="nav-item">
+            <%= link_to orders_path, class: active_class(orders_path) do  %>
+              <%= icon('fas', 'inbox', '所有訂單') %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_order_path, class: active_class(new_order_path) do  %>
+              <%= icon('fas', 'file', '新增客戶訂單') %>
+            <% end %>
+          </li>
+        </ul>
+        <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>系統設定</span>
+        </h5>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <%= link_to categories_path, class: active_class(categories_path) do  %>
+              <%= icon('fas', 'list', '商品類別') %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to locations_path, class: active_class(locations_path) do  %>
+              <%= icon('fas', 'compass', '商品位置') %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to users_path, class: active_class(users_path) do  %>
+              <%= icon('fas', 'user', '使用者') %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

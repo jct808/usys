@@ -1,0 +1,9 @@
+<div class="row mb-3">
+  <div class="col text-left">
+    <%= link_to "上一頁", @supplier, class: "btn btn-primary" %>
+  </div>
+  <div class="col text-right">
+    <%= link_to t_action(:back), suppliers_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<%= render 'form', supplier: @supplier %>

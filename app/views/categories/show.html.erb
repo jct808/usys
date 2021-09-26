@@ -1,0 +1,9 @@
+<div class="col text-center">
+  <%= link_to t_action(:edit), edit_category_path(@category) %> |
+  <%= link_to t_action(:back), categories_path %> |
+  <%= link_to t_action(:delete), @category, method: :delete, data: { confirm: "你確定要刪除此項資料嗎?" },  class: "text-danger" %>
+</div>
+<div class="row mb-2">
+  <div class="col-md-1"><strong><%= t_attr("name") %></strong></div>
+  <div class="col"><%= @category.name %></div>
+</div>

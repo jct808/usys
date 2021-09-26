@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-body">
+    <%= simple_form_for product do |form| %>
+      <%= form.error_notification %>
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <%= form.association :supplier %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <%= form.input :name %>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <%= form.input :price %>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <%= form.input :quantity %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <%= form.input :status, collection: Product.status.options %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <%= form.association :category %>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <%= form.association :location %>
+        </div>
+      </div>
+      <%= form.input :image %>
+      <%= image_tag product.image.url, class: "img-thumbnail", style: "width: 50%" %>
+      <%= form.input :comment %>
+      <%= form.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

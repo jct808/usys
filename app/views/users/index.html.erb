@@ -1,0 +1,34 @@
+<div class="row mb-2">
+  <div class="col">
+    <h4><%= t_title(:index) %></h4>
+  </div>
+  <div class="col text-right">
+    <%= link_to t_title(:new), new_user_path, :class => "btn btn-primary" %>
+  </div>
+</div>
+<table class="table table-striped table-hover" id="myTable">
+  <thead class="thead-dark">
+    <tr>
+      <th><%= t_attr("username") %></th>
+      <th><%= t_attr("name") %></th>
+      <th><%= t_attr("admin") %></th>
+      <th width="40%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, user %><br>
+        </td>
+        <td><%= user.name %><br>
+        </td>
+        <td><%= user.admin %><br>
+        </td>
+        <td>
+          <%= link_to t_action(:edit), edit_user_path(user), class: "btn btn-primary" %>
+          <%= link_to t_action(:delete), user, method: :delete, data: { confirm: "你確定要刪除此項資料嗎?" }, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
